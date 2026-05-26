@@ -1,0 +1,105 @@
+<section id="cadastro-pessoas">
+  <div class="card">
+    <h2>Simulador de Cadastro de Pessoas</h2>
+    <p>
+      Tela criada especialmente para recrutadores testarem uma experiência de cadastro simples,
+      com os dados sendo salvos apenas no <strong>localStorage</strong> deste navegador.
+    </p>
+  </div>
+
+  <div class="layout-grid">
+    <div class="card card-form">
+      <h3>Novo cadastro</h3>
+
+      <form [formGroup]="form" (ngSubmit)="salvar()">
+        <div class="form-row">
+          <label for="nome">Nome completo</label>
+          <input id="nome" type="text" formControlName="nome" />
+          <small *ngIf="form.get('nome')?.touched && form.get('nome')?.invalid">
+            Informe um nome com pelo menos 3 caracteres.
+          </small>
+        </div>
+
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" formControlName="email" />
+          <small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+            Informe um e-mail válido.
+          </small>
+        </div>
+
+        <div class="form-row">
+          <label for="telefone">Telefone</label>
+          <input id="telefone" type="tel" formControlName="telefone" placeholder="(00) 00000-0000" />
+        </div>
+
+        <div class="form-inline">
+          <div class="form-row">
+            <label for="cargo">Cargo de interesse</label>
+            <input id="cargo" type="text" formControlName="cargo" placeholder="Ex: Desenvolvedor Full Stack" />
+          </div>
+
+          <div class="form-row">
+            <label for="senioridade">Senioridade</label>
+            <select id="senioridade" formControlName="senioridade">
+              <option value="" disabled selected>Selecione</option>
+              <option value="Estágio">Estágio</option>
+              <option value="Júnior">Júnior</option>
+              <option value="Pleno">Pleno</option>
+              <option value="Sênior">Sênior</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary">
+          Salvar cadastro
+        </button>
+      </form>
+
+      <p class="hint">
+        Todos os dados ficam apenas neste navegador, sem envio para servidor.
+      </p>
+    </div>
+
+    <div class="card card-lista">
+      <div class="lista-header">
+        <h3>Cadastros deste navegador</h3>
+        <div class="acoes">
+          <input
+            type="text"
+            [(ngModel)]="filtro"
+            placeholder="Filtrar por nome, e-mail ou cargo"
+          />
+          <button type="button" class="btn-secundario" (click)="limparTudo()" [disabled]="!pessoas.length">
+            Limpar tudo
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="!pessoasFiltradas.length" class="lista-vazia">
+        Nenhuma pessoa cadastrada ainda.
+      </div>
+
+      <ul *ngIf="pessoasFiltradas.length" class="lista-pessoas">
+        <li *ngFor="let pessoa of pessoasFiltradas">
+          <div class="info-principal">
+            <strong>{{ pessoa.nome }}</strong>
+            <span class="tag">{{ pessoa.senioridade }}</span>
+          </div>
+          <div class="info-secundaria">
+            <span>{{ pessoa.email }}</span>
+            <span *ngIf="pessoa.telefone">{{ pessoa.telefone }}</span>
+          </div>
+          <div class="info-terciaria">
+            <span>{{ pessoa.cargo }}</span>
+            <span class="data">Criado em {{ pessoa.criadoEm }}</span>
+          </div>
+          <button type="button" class="btn-remover" (click)="remover(pessoa)">
+            Remover
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+

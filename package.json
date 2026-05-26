@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "Remove-Item -Recurse -Force docs; ng build --configuration production --output-path docs --base-href /diegoalexandre.github.io/ && copy docs\\browser\\index.html docs\\index.html && copy docs\\browser\\index.html docs\\404.html && git add docs && git commit -m \"deploy\" && git push origin main"
+    "deploy": "rmdir /S /Q docs 2>nul & ng build --configuration production --output-path docs --base-href /diegoalexandre.github.io/ && xcopy docs\\browser docs /E /Y /I >nul && copy docs\\browser\\index.html docs\\index.html && copy docs\\browser\\index.html docs\\404.html && git add docs && git commit -m \"deploy\" && git push origin main"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,97 @@
+<section id="simulador-vendas">
+  <div class="card">
+    <h2>Simulador de Vendas</h2>
+    <p>
+      Pequeno fluxo para o recrutador testar uma tela de venda de produtos.
+      Todos os dados do carrinho também são salvos apenas no <strong>localStorage</strong> deste navegador.
+    </p>
+  </div>
+
+  <div class="layout-grid">
+    <div class="card card-form">
+      <h3>Adicionar item</h3>
+
+      <div class="form-row">
+        <label for="produto">Produto</label>
+        <select
+          id="produto"
+          [(ngModel)]="produtoSelecionadoId"
+          name="produtoSelecionadoId"
+        >
+          <option *ngFor="let produto of produtos" [ngValue]="produto.id">
+            {{ produto.nome }} - {{ produto.preco | currency: 'BRL' }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="quantidade">Quantidade</label>
+        <input
+          id="quantidade"
+          type="number"
+          min="1"
+          [(ngModel)]="quantidade"
+          name="quantidade"
+        />
+      </div>
+
+      <button type="button" class="btn-primary" (click)="adicionarItem()">
+        Adicionar ao carrinho
+      </button>
+
+      <p class="hint">
+        Este simulador não faz nenhuma cobrança real, é apenas para demonstrar fluxo de front-end.
+      </p>
+    </div>
+
+    <div class="card card-lista">
+      <div class="lista-header">
+        <h3>Carrinho de venda</h3>
+        <button
+          type="button"
+          class="btn-secundario"
+          (click)="limparCarrinho()"
+          [disabled]="!carrinho.length"
+        >
+          Limpar carrinho
+        </button>
+      </div>
+
+      <div *ngIf="!carrinho.length" class="lista-vazia">
+        Nenhum item adicionado ainda.
+      </div>
+
+      <table *ngIf="carrinho.length" class="tabela-carrinho">
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th>Qtd.</th>
+            <th>Valor unitário</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of carrinho">
+            <td>{{ item.nome }}</td>
+            <td>{{ item.quantidade }}</td>
+            <td>{{ item.precoUnitario | currency: 'BRL' }}</td>
+            <td>{{ item.precoUnitario * item.quantidade | currency: 'BRL' }}</td>
+            <td>
+              <button type="button" class="btn-remover" (click)="removerItem(item)">
+                Remover
+              </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total</td>
+            <td colspan="2">{{ total | currency: 'BRL' }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+

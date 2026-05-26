@@ -1,0 +1,23 @@
+section#simulador {
+  .card {
+    background: #ffffff;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.5rem;
+  }
+
+  // remove espaçamento extra dos sections internos
+  app-cadastro-pessoas section,
+  app-simulador-vendas section {
+    padding: 0;
+    max-width: 100%;
+  }
+}
+
+.simulador-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+

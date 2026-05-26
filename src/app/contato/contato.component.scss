@@ -1,1 +1,89 @@
+@media (min-width: 768px) {
+  .contato-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}
+
+.contato-info,
+.contato-acoes {
+  flex: 1;
+}
+
+.contato-subtitle {
+  margin-top: 8px;
+  margin-bottom: 20px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.contato-dados {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contato-dados li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.contato-dados .label {
+  font-weight: 600;
+  color: #6b7280;
+  min-width: 90px;
+}
+
+.contato-dados a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.contato-dados a:hover {
+  text-decoration: underline;
+}
+
+.contato-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contato-texto {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.contato-botoes {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (min-width: 480px) {
+  .contato-botoes {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.botao.linkedin {
+  background: #2563eb;
+}
+
+.botao.github {
+  background: #111827;
+}
+
+.botao.email {
+  background: #10b981;
+}
 

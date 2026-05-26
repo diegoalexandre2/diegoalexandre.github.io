@@ -27,9 +27,19 @@ export const routes: Routes = [
       import('./projetos/projetos.component').then((m) => m.ProjetosComponent)
   },
   {
+    path: 'simulador',
+    loadComponent: () =>
+      import('./simulador/simulador.component').then((m) => m.SimuladorComponent)
+  },
+  {
     path: 'formacao',
     loadComponent: () =>
       import('./formacao/formacao.component').then((m) => m.FormacaoComponent)
+  },
+  {
+    path: 'curriculo',
+    loadComponent: () =>
+      import('./curriculo/curriculo.component').then((m) => m.CurriculoComponent)
   },
   {
     path: 'contato',

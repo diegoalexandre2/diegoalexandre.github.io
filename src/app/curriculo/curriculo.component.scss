@@ -1,0 +1,94 @@
+.curriculo-card {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 32px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.curriculo-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.curriculo-header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+}
+
+.curriculo-header .titulo {
+  margin: 0;
+  font-weight: 600;
+}
+
+.curriculo-header .stack {
+  margin: 4px 0;
+  color: #4b5563;
+}
+
+.contato-linha {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.contato-linha a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.contato-linha a:hover {
+  text-decoration: underline;
+}
+
+.curriculo-conteudo section {
+  margin-bottom: 20px;
+}
+
+.curriculo-conteudo h2 {
+  margin-bottom: 6px;
+  font-size: 18px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 4px;
+}
+
+.curriculo-conteudo h3 {
+  margin: 10px 0 0;
+  font-size: 15px;
+}
+
+.subinfo {
+  margin: 0 0 4px;
+  color: #4b5563;
+  font-size: 13px;
+}
+
+.lista-tecnologias {
+  margin-top: 8px;
+}
+
+.acoes {
+  text-align: center;
+  margin-top: 12px;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .curriculo-card {
+    margin: 0;
+    max-width: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .acoes {
+    display: none;
+  }
+}
+

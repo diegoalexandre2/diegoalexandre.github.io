@@ -1,0 +1,133 @@
+section#simulador-vendas {
+  padding: 0;
+  max-width: 100%;
+
+  .card {
+    background: #ffffff;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.25rem;
+  }
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.6fr);
+  gap: 1.75rem;
+}
+
+.card-form,
+.card-lista {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  input,
+  select {
+    border-radius: 8px;
+    border: 1px solid #d0d7e2;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+.btn-primary {
+  align-self: flex-start;
+  background: #0ea89b;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hint {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.lista-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.btn-secundario {
+  border-radius: 999px;
+  border: 1px solid #e11d48;
+  background: #fff1f2;
+  color: #be123c;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.lista-vazia {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.tabela-carrinho {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+
+  th,
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+  }
+
+  thead {
+    background: #0f172a;
+    color: #e5e7eb;
+  }
+
+  tfoot td {
+    font-weight: 700;
+  }
+}
+
+.btn-remover {
+  border-radius: 999px;
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  background: transparent;
+  color: #b91c1c;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .layout-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tabela-carrinho {
+    font-size: 0.8rem;
+  }
+}
+

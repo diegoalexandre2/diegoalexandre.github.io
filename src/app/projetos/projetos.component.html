@@ -2,9 +2,65 @@
   <div class="card">
     <h2>Projetos</h2>
     <p>
-      Aqui você pode adicionar cards com seus principais projetos, links para o
-      GitHub e uma breve descrição de cada um.
+      Alguns projetos que demonstram minhas habilidades em desenvolvimento web,
+      integrações e boas práticas de código.
     </p>
+  </div>
+
+  <div class="projetos-grid">
+    <article class="card projeto-card" *ngFor="let projeto of projetos">
+      <figure class="projeto-imagem" *ngIf="projeto.imagem">
+        <img
+          [src]="projeto.imagem"
+          [alt]="projeto.titulo"
+          loading="lazy"
+        />
+      </figure>
+
+      <header class="projeto-header">
+        <h3>{{ projeto.titulo }}</h3>
+        <button
+          type="button"
+          class="favorito-btn"
+          [class.favorito]="projeto.favorito"
+          (click)="toggleFavorito(projeto)"
+          aria-label="Marcar como favorito"
+        >
+          <span *ngIf="projeto.favorito">★</span>
+          <span *ngIf="!projeto.favorito">☆</span>
+        </button>
+      </header>
+
+      <p class="projeto-descricao">
+        {{ projeto.descricao }}
+      </p>
+
+      <p class="projeto-tecnologias">
+        <strong>Tecnologias:</strong>
+        <span *ngFor="let tech of projeto.tecnologias; let last = last">
+          {{ tech }}<span *ngIf="!last"> • </span>
+        </span>
+      </p>
+
+      <div class="projeto-links" *ngIf="projeto.github || projeto.demo">
+        <a
+          *ngIf="projeto.github"
+          [href]="projeto.github"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver no GitHub
+        </a>
+        <a
+          *ngIf="projeto.demo"
+          [href]="projeto.demo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver demo
+        </a>
+      </div>
+    </article>
   </div>
 </section>
 
